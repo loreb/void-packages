@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9f583af..fdbcc47 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -35,6 +35,7 @@ endif()
+ # If you wish to change the library type of RapidCheck, you can either specify the variable when invoking CMake
+ # or, if you are including RapidCheck as a subdirectory and wish to control the library type, you can set
+ # the variable before the call to add_subdirectory and reset it afterwards, if necessary.
++option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
+ add_library(rapidcheck
+   src/BeforeMinimalTestCase.cpp
+   src/Check.cpp

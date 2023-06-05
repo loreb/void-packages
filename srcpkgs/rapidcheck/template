@@ -1,0 +1,20 @@
+# Template file for 'rapidcheck'
+pkgname=rapidcheck
+version=20230416
+revision=1
+build_style=cmake
+short_desc="QuickCheck clone for C++ with the goal of being simple to use"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="BSD-2-Clause"
+homepage=https://github.com/emil-e/rapidcheck
+# needed to build newer versions of nix
+_githash=a5724ea5b0b00147109b0605c377f1e54c353ba2
+distfiles="$homepage/archive/$_githash.tar.gz"
+checksum=9a754942f99027c66c0aed14a684cd4a36b28ab232d9079473d427d09af57871
+
+configure_args+=-DRC_INSTALL_ALL_EXTRAS=ON
+
+do_install() {
+	( cd build && ninja install ; )
+	vlicense LICENSE.md
+}

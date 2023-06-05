@@ -1,7 +1,7 @@
 # Template file for 'nix'
 pkgname=nix
-version=2.11.0
-revision=5
+version=2.16.1
+revision=1
 build_style=gnu-configure
 build_helper=qemu
 # Use /nix/var as suggested by the official Manual.
@@ -10,11 +10,11 @@ configure_args="--localstatedir=/nix/var
 make_build_args="V=1 SET_RPATH_TO_LIBS=0"
 make_install_args="V=1 SET_RPATH_TO_LIBS=0"
 hostmakedepends="curl pkg-config flex tar xz automake autoconf-archive mdBook jq
- busybox-static lowdown"
+ busybox-static lowdown mdbook-linkcheck"
 makedepends="boost-devel brotli-devel bzip2-devel gc-devel libcurl-devel
  liblzma-devel openssl-devel libsodium-devel sqlite-devel
  libseccomp-devel editline-devel jq-devel libarchive-devel
- gtest-devel lowdown-devel json-c++"
+ gtest-devel lowdown-devel json-c++ rapidcheck"
 depends="curl tar xz busybox-static"
 short_desc="Purely functional package manager"
 maintainer="Orphaned <orphan@voidlinux.org>"
@@ -22,7 +22,7 @@ license="LGPL-2.1-or-later"
 homepage="https://nixos.org/nix/"
 changelog="https://nixos.org/releases/${pkgname}/${pkgname}-${version}/manual/#sec-relnotes"
 distfiles="https://github.com/NixOS/nix/archive/refs/tags/${version}.tar.gz"
-checksum=6a90e144352eaccfab7ef7ed470bad382c4f92d62336b327df99627adba67a7c
+checksum=dcea9d91faf5cbe4198a45bf4f4a325902bc7056d04fb44eefbcdf8b8fc46f18
 # disable_parallel_build="build is fine, only linking test"
 
 if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
